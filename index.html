@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#1f2a2e">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icon-192.png">
+<!-- <title>Книги</title> -->
+<style>
+:root{--bg:#1f2a2e;--paper:#f2ecdc;--ink:#241f1a;--bk1:#d6ccb2;--bk2:#ebe3cc;--ui:#e9e2cf;--card:#2b383d;--fs:19px}
+[data-theme=sepia]{--bg:#2a2118;--paper:#e8d7b2;--ink:#3a2a18;--bk1:#cdb98d;--bk2:#dfcda5;--ui:#eadfc6;--card:#3a2e22}
+[data-theme=night]{--bg:#0f1214;--paper:#23282c;--ink:#c8c3b5;--bk1:#1a1e21;--bk2:#2a2f33;--ui:#aaa69a;--card:#1b2024}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{height:100%;height:100dvh;margin:0;background:var(--bg);color:var(--ui);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;overflow:hidden}
+button{font:inherit;color:inherit}
+#lib{height:100%;overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 24px) 18px 32px}
+#lib h1{font-size:30px;font-weight:400;margin:0 0 20px}
+.bk{display:block;width:100%;text-align:left;margin:0 0 12px;padding:18px 18px 18px 22px;background:var(--card);border:0;border-left:8px solid #b9803f;border-radius:4px 10px 10px 4px;font-size:20px}
+.bk:active{filter:brightness(1.2)}
+#rd{height:100%;display:flex;flex-direction:column}
+#bar{display:flex;align-items:center;gap:2px;padding:calc(env(safe-area-inset-top,0px) + 6px) 8px 6px}
+#bar b{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-weight:400;text-align:center}
+#bar button{background:none;border:0;padding:8px 10px;font-size:17px}
+#stage{flex:1;position:relative;perspective:2200px;margin:2px 10px calc(env(safe-area-inset-bottom,0px) + 12px) 8px;touch-action:none;user-select:none;-webkit-user-select:none}
+.pg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.16),rgba(0,0,0,0) 26px),var(--paper);color:var(--ink);padding:22px 20px 36px 24px;font-size:var(--fs);line-height:1.5;white-space:pre-wrap;text-align:justify;hyphens:auto;border-radius:3px 8px 8px 3px;box-shadow:1px 1px 0 var(--bk1),2px 2px 0 var(--bk2),3px 3px 0 var(--bk1),0 8px 22px #0009;overflow:hidden}
+.pg .t{height:100%;overflow:hidden}
+.pg i{position:absolute;bottom:11px;left:0;right:0;text-align:center;font-size:12px;font-style:normal;opacity:.55}
+#meas{visibility:hidden;z-index:-1;pointer-events:none}
+.s{position:absolute;top:0;height:100%;transform-origin:left center;transform-style:preserve-3d}
+.leaf{left:0}
+.f,.b{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.b{transform:rotateY(180deg);background:linear-gradient(90deg,var(--bk1),var(--bk2) 55%,var(--bk1))}
+.sh{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.shade{position:absolute;inset:0;pointer-events:none}
+#msg{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;pointer-events:none}
+</style></head><body>
+<div id="lib"><h1></h1><div id="list"></div></div>
+<div id="rd" hidden>
+<div id="bar"><button id="back">‹‹‹</button><b id="ttl"></b><button id="th" title="Тема">◐</button><button id="fm">A−</button><button id="fp">A+</button></div>
+<div id="stage"><div class="pg" id="meas"><div class="t"></div></div><div id="msg"></div></div>
+</div>
+<script src="books.js"></script>
+<script src="app.js"></script>
+</body></html>
